@@ -1,0 +1,34 @@
+ninja_required_version = 1.3
+cxx = c++
+nvcc = /easybuild/software/CUDA/11.7.0/bin/nvcc
+
+cflags = -pthread -B /data1/xzhang2/anaconda3/envs/pytorch_113/compiler_compat -Wno-unused-result -Wsign-compare -DNDEBUG -fwrapv -O2 -Wall -fPIC -O2 -isystem /data1/xzhang2/anaconda3/envs/pytorch_113/include -fPIC -O2 -isystem /data1/xzhang2/anaconda3/envs/pytorch_113/include -fPIC -I/data1/xzhang2/anaconda3/envs/pytorch_113/lib/python3.10/site-packages/torch/include -I/data1/xzhang2/anaconda3/envs/pytorch_113/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -I/data1/xzhang2/anaconda3/envs/pytorch_113/lib/python3.10/site-packages/torch/include/TH -I/data1/xzhang2/anaconda3/envs/pytorch_113/lib/python3.10/site-packages/torch/include/THC -I/easybuild/software/CUDA/11.7.0/include -I/data1/xzhang2/anaconda3/envs/pytorch_113/include/python3.10 -c
+post_cflags = -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE="_gcc"' '-DPYBIND11_STDLIB="_libstdcpp"' '-DPYBIND11_BUILD_ABI="_cxxabi1011"' -DTORCH_EXTENSION_NAME=deform_pool_cuda -D_GLIBCXX_USE_CXX11_ABI=0 -std=c++14
+cuda_cflags = -I/data1/xzhang2/anaconda3/envs/pytorch_113/lib/python3.10/site-packages/torch/include -I/data1/xzhang2/anaconda3/envs/pytorch_113/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -I/data1/xzhang2/anaconda3/envs/pytorch_113/lib/python3.10/site-packages/torch/include/TH -I/data1/xzhang2/anaconda3/envs/pytorch_113/lib/python3.10/site-packages/torch/include/THC -I/easybuild/software/CUDA/11.7.0/include -I/data1/xzhang2/anaconda3/envs/pytorch_113/include/python3.10 -c
+cuda_post_cflags = -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr --compiler-options ''"'"'-fPIC'"'"'' -DTORCH_API_INCLUDE_EXTENSION_H '-DPYBIND11_COMPILER_TYPE="_gcc"' '-DPYBIND11_STDLIB="_libstdcpp"' '-DPYBIND11_BUILD_ABI="_cxxabi1011"' -DTORCH_EXTENSION_NAME=deform_pool_cuda -D_GLIBCXX_USE_CXX11_ABI=0 -gencode=arch=compute_75,code=compute_75 -gencode=arch=compute_75,code=sm_75 -std=c++14
+cuda_dlink_post_cflags = 
+ldflags = 
+
+rule compile
+  command = $cxx -MMD -MF $out.d $cflags -c $in -o $out $post_cflags
+  depfile = $out.d
+  deps = gcc
+
+rule cuda_compile
+  depfile = $out.d
+  deps = gcc
+  command = $nvcc  $cuda_cflags -c $in -o $out $cuda_post_cflags
+
+
+
+
+
+build /data1/xzhang2/liver_couinaud_segmentation/model/GRCNN/modules/dgmn/dcn/build/temp.linux-x86_64-cpython-310/src/deform_pool_cuda.o: compile /data1/xzhang2/liver_couinaud_segmentation/model/GRCNN/modules/dgmn/dcn/src/deform_pool_cuda.cpp
+build /data1/xzhang2/liver_couinaud_segmentation/model/GRCNN/modules/dgmn/dcn/build/temp.linux-x86_64-cpython-310/src/deform_pool_cuda_kernel.o: cuda_compile /data1/xzhang2/liver_couinaud_segmentation/model/GRCNN/modules/dgmn/dcn/src/deform_pool_cuda_kernel.cu
+
+
+
+
+
+
+
