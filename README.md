@@ -45,8 +45,13 @@ python "/home/data1/liver_couinaud_segmentation/model/GRCNN/test_LiTS.py" \
         --voxel_resolution 32 16 8 4
 ```
 
-#
+# Citation
 If you use this work, please cite:
 ```
-
+@article{zhang2025skip,
+  title={Skip priors and add graph-based anatomical information, for point-based Couinaud segmentation},
+  author={Zhang, Xiaotong and Broersen, Alexander and van Erp, Gonnie and Pintea, Silvia L and Dijkstra, Jouke},
+  journal={arXiv preprint arXiv:2508.01785},
+  year={2025}
+}
 ```
