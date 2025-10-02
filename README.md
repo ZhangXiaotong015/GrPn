@@ -44,3 +44,9 @@ python "/home/data1/liver_couinaud_segmentation/model/GRCNN/test_LiTS.py" \
         --fea_size 32 16 8 4 \
         --voxel_resolution 32 16 8 4
 ```
+
+#
+If you use this work, please cite:
+```
+
+```
