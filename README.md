@@ -48,11 +48,20 @@ python "/home/data1/liver_couinaud_segmentation/model/GRCNN/test_LiTS.py" \
 # Citation
 If you use this work, please cite:
 ```
-@article{zhang2025skip,
-  title={Skip priors and add graph-based anatomical information, for point-based Couinaud segmentation},
-  author={Zhang, Xiaotong and Broersen, Alexander and van Erp, Gonnie and Pintea, Silvia L and Dijkstra, Jouke},
-  journal={arXiv preprint arXiv:2508.01785},
-  year={2025}
+@inproceedings{10.1007/978-3-032-06103-4_13,
+author = {Zhang, Xiaotong and Broersen, Alexander and van Erp, Gonnie C. M. and Pintea, Silvia L. and Dijkstra, Jouke},
+title = {Skip Priors and Add Graph-Based Anatomical Information, for Point-Based Couinaud Segmentation},
+year = {2025},
+isbn = {978-3-032-06102-7},
+publisher = {Springer-Verlag},
+address = {Berlin, Heidelberg},
+url = {https://doi.org/10.1007/978-3-032-06103-4_13},
+doi = {10.1007/978-3-032-06103-4_13},
+booktitle = {Reconstruction and Imaging Motion Estimation, and Graphs in Biomedical Image Analysis: First International Workshop, RIME 2025, and 7th International Workshop, GRAIL 2025, Daejeon, South Korea, September 27, 2025, Proceedings},
+pages = {131–140},
+numpages = {10},
+keywords = {Couinaud segmentation, 3D graph reasoning, Point net},
+location = {Daejeon, Korea (Republic of)}
 }
 ```
 
