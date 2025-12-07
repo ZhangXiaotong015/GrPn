@@ -3,7 +3,7 @@ The official implementation of [Skip priors and add graph-based anatomical infor
 You can find the full article at [this link](https://arxiv.org/pdf/2508.01785).
 
 # Training
-1. Training with MSD dataset:
+1. Training with MSD dataset (the median of interplanar resolutions is 5.00 mm):
 ```
 python "/home/data1/liver_couinaud_segmentation/model/GRCNN/train_MSD.py" \
         --name 'MSD_res_64_64_64' \
@@ -13,7 +13,7 @@ python "/home/data1/liver_couinaud_segmentation/model/GRCNN/train_MSD.py" \
         --fea_size 64 32 16 8 \
         --voxel_resolution 64 32 16 8
 ```
-2. Training with LiTS dataset:
+2. Training with LiTS dataset (the median of interplanar resolutions is 1.00 mm):
 ```
 python "/home/data1/liver_couinaud_segmentation/model/GRCNN/train_LiTS.py" \
         --name 'LiTS_32_32_32' \
