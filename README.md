@@ -1,5 +1,5 @@
 # GrPn
-The official implementation of 'Skip priors and add graph-based anatomical information, for point-based Couinaud segmentation'.
+The official implementation of [Skip priors and add graph-based anatomical information, for point-based Couinaud segmentation](https://link.springer.com/chapter/10.1007/978-3-032-06103-4_13).
 
 # Training
 1. Training with MSD dataset:
