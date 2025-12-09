@@ -72,8 +72,8 @@ class Voxelization(nn.Module):
 
     def forward(self, features, batch, mode=None):
         if mode is None:
-            # coords = batch.points[self.layer_ind].detach() # (N,3)
-            coords = batch[f'points_{self.layer_ind}'].detach() # FLOPs calculation
+            coords = batch.points[self.layer_ind].detach() # (N,3)
+            # coords = batch[f'points_{self.layer_ind}'].detach() # FLOPs calculation
         else:
             coords = batch.points_target[self.layer_ind].detach() # (N,3)
         coords = coords.permute(1,0).unsqueeze(0) # (1,3,N)
