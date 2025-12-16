@@ -2,6 +2,17 @@
 The official implementation of [Skip priors and add graph-based anatomical information, for point-based Couinaud segmentation](https://link.springer.com/chapter/10.1007/978-3-032-06103-4_13).
 You can find the full article at [this link](https://arxiv.org/pdf/2508.01785).
 
+## Dockerfile
+You can simply build the inference image in a WSL2 environment using the Dockerfile in [Dockerfile/GrPn](Dockerfile/GrPn/).
+```
+cd Dockerfile/GrPn
+docker build -t couinaud_seg:latest .
+## In the run.sh, replace the src path in '--mount type=bind,src=/mnt/e/WSL/TestData/CouinaudSeg/Pre_CT/portal,dst=/data_CT,readonly \'
+## and '--mount type=bind,src=/mnt/e/WSL/TestData/CouinaudSeg/Pre_liverMask/Portal,dst=/data_liver,readonly \' with your own data path.
+bash run.sh
+```
+You can find the model weights at [this link](https://drive.google.com/drive/folders/1iSxVyvbBPVwCBBJ_Ic-tGJKz_uLPrjbl?usp=drive_link) and download them to ```Dockerfile/GrPn/model_weights```.
+
 # Training
 1. Training with MSD dataset (the median of interplanar resolutions is 5.00 mm):
 ```
