@@ -13,6 +13,17 @@ bash run.sh
 ```
 You can find the model weights at [this link](https://drive.google.com/drive/folders/1iSxVyvbBPVwCBBJ_Ic-tGJKz_uLPrjbl?usp=drive_link) and download them to ```Dockerfile/GrPn/model_weights```.
 
+## Apptainer/Singularity container system
+If you have a Docker image built as mentioned above, you can save the Docker image to a ```.tar``` file and convert it to a ```SIF``` file, which is compatible with Apptainer.
+```
+docker save -o couinaud_seg.tar couinaud_seg:latest
+```
+You can use the bash file in [Apptainer](Apptainer/) to run the inference. 
+```
+cd Apptainer
+bash bash_GrPn.sh
+```
+
 # Training
 1. Training with MSD dataset (the median of interplanar resolutions is 5.00 mm):
 ```
