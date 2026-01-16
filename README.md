@@ -13,6 +13,14 @@ bash run.sh
 ```
 You can find the model weights at [this link](https://drive.google.com/drive/folders/1iSxVyvbBPVwCBBJ_Ic-tGJKz_uLPrjbl?usp=drive_link) and download them to ```Dockerfile/GrPn/model_weights```.
 
+Contents of the output folder:
+
+./predictions: Point predictions saved as .txt files.
+
+./predictions_nii: Couinaud segments in NIfTI format.
+
+./predictions_fillHoles_nii: Final Couinaud segments in NIfTI format.
+
 ## Apptainer/Singularity container system
 If you have a Docker image built as mentioned above, you can save the Docker image to a ```.tar``` file and convert it to a ```SIF``` file, which is compatible with Apptainer.
 ```
